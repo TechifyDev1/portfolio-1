@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Yusuf Abdulqudus (Techify Dev)">
+    <meta name="description" content="Techify Dev | Personal Portfolio - A passionate web developer and tech enthusiast showcasing projects, skills, and contact information.">
+    <meta name="keywords" content="Techify Dev, Yusuf Abdulqudus, Web Developer, Portfolio, Frontend Developer, HTML, CSS, JavaScript, Responsive Design">
+    <meta property="og:title" content="Techify Dev | Portfolio">
+    <meta property="og:description" content="Explore the work and skills of Techify Dev (Yusuf Abdulqudus), a tech-driven web developer passionate about innovation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourportfolio.com">
+    <meta property="og:image" content="https://api.dicebear.com/7.x/adventurer/svg?seed=TechifyDev">
+    <title>Techify Dev | Portfolio</title>
+    <link rel="icon" href="https://api.dicebear.com/7.x/adventurer/svg?seed=TechifyDev" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ffffff;
+            text-align: center;
+            opacity: 0;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0ff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f0f;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #0ff;
+            text-transform: uppercase;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 120px auto 20px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: url('https://api.dicebear.com/7.x/adventurer/svg?seed=TechifyDev') no-repeat center;
+            background-size: cover;
+            margin: 20px auto;
+            border: 3px solid #0ff;
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .about-content .avatar {
+                margin: 0 20px 0 0;
+                width: 59%;
+                object-fit: cover;
+            }
+
+            .about-content p {
+                text-align: left;
+            }
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #0ff;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .desktop-nav {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex !important;
+            }
+        }
+        .menu-toggle {
+            flex-direction: column;
+            cursor: pointer;
+            display: none;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 3px;
+            background: #0ff;
+            margin: 5px;
+        }
+        .mobile-nav {
+            display: flex;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 4rem;
+            right: 0;
+            background-color: #0a0a0a56;
+            z-index: 100;
+            justify-content: flex-end;
+            transition: all 0.4s ease-in;
+            transform: translateX(-100%);
+
+           ul{
+            width: 30%;
+            background-color: #0a0a0a9f;
+            font-size: 2rem;
+            padding: 1rem;
+
+
+            * {
+                width: 100%;
+                text-align: left;
+            }
+           }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Techify Dev</h1>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    
+    <section id="about" class="container">
+        <div class="about-content">
+            <div class="avatar"></div>
+            <div>
+                <h2>About Me</h2>
+                <p>
+                    Hey there! I'm <strong>Techify Dev (Yusuf Abdulqudus)</strong>, a passionate web developer and tech enthusiast. 
+                    With a deep love for innovation and problem-solving, I specialize in building sleek, responsive, and dynamic web applications. 
+                    I have experience in front-end and back-end development, working with modern technologies such as HTML, CSS, JavaScript, and frameworks like React.
+                </p>
+                <p>
+                    My mission is to craft user-friendly digital experiences that leave a lasting impact. I am always eager to learn, 
+                    collaborate, and contribute to tech communities. Whether it's designing elegant UI/UX, optimizing performance, 
+                    or diving into new frameworks, I strive for excellence in every project I work on.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects" class="container">
+        <h2 style="margin-bottom: 2rem;">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>A personal portfolio showcasing my skills, projects, and contact details. Built with HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="project-card">
+                <h3>E-commerce Store</h3>
+                <p>An online shopping platform with a cart system, product filtering, and checkout features. Built with React & Firebase.</p>
+            </div>
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>A real-time weather forecast app that fetches data from OpenWeather API. Developed using JavaScript & API integration.</p>
+            </div>
+            <div class="project-card">
+                <h3>Task Manager</h3>
+                <p>A simple to-do list app with CRUD functionality to manage daily tasks. Built using JavaScript & Local Storage.</p>
+            </div>
+            <div class="project-card">
+                <h3>Blog CMS</h3>
+                <p>A Content Management System (CMS) where users can create, edit, and delete blog posts. Built with Next.js & MongoDB.</p>
+            </div>
+            <div class="project-card">
+                <h3>Landing Page</h3>
+                <p>A responsive landing page for a startup, featuring animations and call-to-action buttons. Built with Tailwind CSS.</p>
+            </div>
+            <div class="project-card">
+                <h3>Chat App</h3>
+                <p>A real-time chat application using WebSockets and Firebase for instant messaging.</p>
+            </div>
+            <div class="project-card">
+                <h3>Crypto Price Tracker</h3>
+                <p>A web app that tracks real-time cryptocurrency prices and trends. Built with React and CoinGecko API.</p>
+            </div>
+        </div>
+        
+    </section>
+    
+    <section id="contact" class="container">
+        <h2>Contact</h2>
+        <p>Email: techifydev1@gmail.com</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Techify Dev (Yusuf Abdulqudus). All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
