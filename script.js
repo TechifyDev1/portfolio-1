@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     sideBarToggler.addEventListener("click", () => {
         if (mobileNav.style.transform === "translateX(0%)") {
-            mobileNav.style.transform = "translateX(-100%)";
+            mobileNav.style.transform = "translateX(100%)";
         } else {
             mobileNav.style.transform = "translateX(0%)";
         }
